@@ -14,14 +14,23 @@ next.addEventListener('click', () => {
     update()
     
 })
+next.addEventListener('click', () => {
+    currentActive++
+    if (currentActive > circles.length){
+        currentActive = circles.length
+    }
+
+    update()
+    
+})
 
 prev.addEventListener('click', () => {
     currentActive--
     if (currentActive < 1){
         currentActive = 1
     }
-
     update()
+    
 })
 
 function update() {
@@ -45,3 +54,5 @@ function update() {
         next.disabled = false
     }
 }
+
+const diego = se la come
