@@ -1,33 +1,17 @@
-const jokeEl = document.getElementById('joke')
-const jokeBtn = document.getElementById('jokeBtn')
 
-jokeBtn.addEventListener('click', generateJoke)
+const insert = document.getElementById('insert')
 
-generateJoke()
-
-// Using async await
-async function generateJoke() {
-    const config = {
-        headers: {
-            'Accept':'application/json'
-        }
-    }
-    const res = await fetch('https://icanhazdadjoke.com', config)
-
-    const data = await res.json()
-    jokeEl.innerHTML = data.joke
-}
-
-// Usinf .then()
-// function generateJoke() {
-//     const config = {
-//         headers: {
-//             'Accept':'application/json'
-//         }
-//     }
-//     fetch('https://icanhazdadjoke.com', config)
-//         .then(res => res.json())
-//         .then(data => {
-//             jokeEl.innerHTML = data.joke
-//         })
-// }
+window.addEventListener('keydown', (e) => {
+    insert.innerHTML = `<div class="key">
+    ${e.key === ' ' ? 'Space' : e.key }
+    <small>event.key</small>
+</div>
+<div class="key">
+    ${e.keyCode }
+    <small>event.code</small>
+</div>
+<div class="key">
+    ${e.code }
+    <small>event.code</small>
+</div>`
+})
